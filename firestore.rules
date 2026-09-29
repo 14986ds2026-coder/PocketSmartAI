@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null && request.auth.token.email != null;
+    }
+    
+    function getUserId() {
+      return request.auth.uid;
+    }
+    
+    function isUserDocument(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function isValidInvestmentData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['investments', 'lastUpdated']) &&
+             data.investments is list;
+    }
+
+    // Transactions collection
+    match /transactions/{transactionId} {
+      allow read, write, create, update, delete: if isAuthenticated() && 
+        (resource == null || resource.data.userId == getUserId()) &&
+        (request.resource == null || request.resource.data.userId == getUserId());
+    }
+    
+    // Categories collection
+    match /categories/{categoryId} {
+      allow read, write, create, update, delete: if isAuthenticated() && 
+        (resource == null || resource.data.userId == getUserId()) &&
+        (request.resource == null || request.resource.data.userId == getUserId());
+    }
+    
+    // Budgets collection
+    match /budgets/{budgetId} {
+      allow read, write, create, update, delete: if isAuthenticated() && 
+        (resource == null || resource.data.userId == getUserId()) &&
+        (request.resource == null || request.resource.data.userId == getUserId());
+    }
+    
+    // User profiles
+    match /users/{userId} {
+      allow read, write, create, update, delete: if isUserDocument(userId);
+    }
+    
+    // Investment collection rules
+    // Structure: users/investments/{date}/{userEmail}
+    match /users/investments/{date}/{userEmail} {
+      allow read: if isAuthenticated() && 
+                 request.auth.token.email == userEmail;
+      
+      allow create, update: if isAuthenticated() && 
+                          request.auth.token.email == userEmail && 
+                          isValidInvestmentData();
+      
+      allow delete: if isAuthenticated() && 
+                   request.auth.token.email == userEmail;
+    }
+
+    // Allow listing investments by date
+    match /users/investments/{date} {
+      allow list: if isAuthenticated();
+    }
+  }
+}

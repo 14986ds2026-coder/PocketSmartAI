@@ -1,0 +1,12 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "mcp": {
+    "command": "dart",
+    "args": [
+      "mcp_server.dart"
+    ],
+    "port": 8080
+  }
+}
