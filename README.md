@@ -1,6 +1,4 @@
-# PocketSmart AI — AI/ML/Gen-AI Track Project
-
-FitBuddy - AI Fitness Plan Generator using Gemini Models 
+# PocketSmart AI — Your Smart Budget & Recommedation Assistant
 
 Repository Structure
 
