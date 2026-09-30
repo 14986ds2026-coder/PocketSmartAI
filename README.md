@@ -1,65 +1,23 @@
 # PocketSmart AI — AI/ML/Gen-AI Track Project
 
-## Team Information
+FitBuddy - AI Fitness Plan Generator using Gemini Models 
 
-- **Team ID:** SWTID-2026-4005
-- **Team Size:** 5 members
-- **Team Members:** Abinesh S, Prakash N, Sachin S, Gokul Krishnan G, Jagadeesh V
+Repository Structure
 
-## Project Overview
+1.Brainstorming & Ideation
 
-PocketSmart AI is a web-based smart budget and recommendation assistant that helps users track expenses, manage monthly budgets, set savings goals, visualize spending, scan receipts, export transaction data, and receive AI-assisted financial recommendations.
+2.Requirement Analysis
 
-## Repository Structure
+3.Project Design Phase
 
-```text
-1. Brainstorming & Ideation/
-2. Requirement Analysis/
-3. Project Design Phase/
-4. Project Planning Phase/
-5. Project Development Phase/
-6.Project Testing/
-7.Project Documentation/
-8.Project Demonstration/
-PocketSmart_AI_Project_Report
-README.md
-```
+4.Project Planning Phase
 
-The eight phase folders follow the structure of the supplied
-`AI-ML-and-GEN-AI-Track-Project-Template-main` project template.
+5.Project Development Phase
 
-## Main Features
+6.Project Testing
 
-- Expense tracking
-- Spending analytics
-- Budget management
-- Savings goals
-- AI recommendations
-- AI receipt scanning
-- CSV export
-- Dark/light mode
-- User authentication
-- Security headers and rate limiting
+7.Project Documentation
 
-## Technology Stack
+8.Project Demonstration
 
-Python, Flask, HTML, CSS, JavaScript, SQLite, optional PostgreSQL,
-Chart.js and Google Gemini.
-
-## Running the Project
-
-```bash
-pip install -r requirements.txt
-python app.py
-```
-
-Then open `http://localhost:5000`.
-
-Configure environment values such as `SECRET_KEY` and, when AI features
-are required, the Gemini API key according to the project documentation.
-
-## Notes
-
-- Team ID and team-member details have been updated across the submission documents.
-- Performance figures are not fabricated; the testing document specifies what should be measured in the final environment.
-- The original application source files are retained.
+Replace the placeholder files with your team's project deliverables.
